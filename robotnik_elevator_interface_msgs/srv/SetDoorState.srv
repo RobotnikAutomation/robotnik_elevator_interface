@@ -1,0 +1,8 @@
+# See ElevatorState (open,close)
+string state
+# unique control token to avoid controlling the elevator from external agents
+string control_token
+---
+bool success
+string message
+

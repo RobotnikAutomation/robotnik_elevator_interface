@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>robotnik_elevator_interface</name>
+  <version>1.0.0</version>
+  <description>The robotnik_elevator_interface package</description>
+
+  <maintainer email="asoriano@robotnik.es">Angel Soriano</maintainer>
+  <maintainer email="avillena@robotnik.es">Álvaro Villena</maintainer>
+  <maintainer email="dredo@robotnik.es">David Redó</maintainer>
+  <maintainer email="aarnal@robotnik.es">Alejandro Arnal</maintainer>
+  <maintainer email="mbosch@robotnik.es">Marc Bosch</maintainer>
+  <maintainer email="rnavarro@robotnik.es">Román Navarro</maintainer>
+
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>robotnik_elevator_interface_msgs</exec_depend>
+ 
+  <export>
+   
+    <metapackage/>
+   
+  </export>
+</package>
