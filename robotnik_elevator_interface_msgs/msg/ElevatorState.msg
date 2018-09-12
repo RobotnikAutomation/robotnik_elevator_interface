@@ -5,8 +5,8 @@ string ELEVATOR_STATUS_MOVING=moving
 string DOOR_STATUS_UNKNOWN=unknown
 string DOOR_STATUS_OPENING=opening
 string DOOR_STATUS_CLOSING=closing
-string DOOR_STATUS_CLOSE=open
-string DOOR_STATUS_OPEN=close
+string DOOR_STATUS_CLOSE=close
+string DOOR_STATUS_OPEN=open
 
 int32 current_floor
 int32 target_floor
