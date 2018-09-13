@@ -34,13 +34,22 @@ add_library(${PROJECT_NAME}
    src/robotnik_elevator_component.cpp
 )
 
+add_executable(robotnik_fake_elevator_node src/robotnik_fake_elevator_node.cpp)
+
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(robotnik_fake_elevator_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME}
+   ${catkin_LIBRARIES}
+)
+
+
+target_link_libraries(robotnik_fake_elevator_node
+   ${PROJECT_NAME}
    ${catkin_LIBRARIES}
 )
 
@@ -50,7 +59,7 @@ target_link_libraries(${PROJECT_NAME}
 
 
 ## Mark executables and/or libraries for installation
-install(TARGETS ${PROJECT_NAME}
+install(TARGETS ${PROJECT_NAME} robotnik_fake_elevator_node
    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
