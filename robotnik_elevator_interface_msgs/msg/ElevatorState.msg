@@ -8,6 +8,8 @@ string DOOR_STATUS_CLOSING=closing
 string DOOR_STATUS_CLOSE=close
 string DOOR_STATUS_OPEN=open
 
+string elevator_id
+
 int32 current_floor
 int32 target_floor
 # True if the elevator is under control
