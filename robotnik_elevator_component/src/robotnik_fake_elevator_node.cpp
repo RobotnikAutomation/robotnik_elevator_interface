@@ -10,8 +10,8 @@ class RobotnikFakeElevatorNode : public RobotnikElevatorComponent
 public:
  
 public:
-  RobotnikFakeElevatorNode(ros::NodeHandle h, std::string name = "RobotnikFakeElevatorNode")
-    : RobotnikElevatorComponent(h, name)
+  RobotnikFakeElevatorNode(ros::NodeHandle h)
+    : RobotnikElevatorComponent(h)
   {
   }
 
@@ -89,7 +89,7 @@ public:
 // MAIN
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "RobotnikFakeElevatorNode");
+  ros::init(argc, argv, "robotnik_elevator_node");
 
   ros::NodeHandle n;
   RobotnikFakeElevatorNode controller(n);
