@@ -52,8 +52,8 @@ protected:
   double max_control_time_in_idle;
   
 public:
-  RobotnikElevatorComponent(ros::NodeHandle h, std::string name = "RobotnikElevarorComponent")
-    : rcomponent::RComponent(h, name)
+  RobotnikElevatorComponent(ros::NodeHandle h)
+    : rcomponent::RComponent(h)
   {
 	  max_control_time_in_idle = DEFAULT_MAX_CONTROL_TIME_IN_IDLE;
 	  desired_freq_ = DEFAULT_FREQ;

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="robotnik_elevator_component" type="robotnik_fake_elevator_node" name="elevator" respawn="true" clear_params="true">
+   
+  </node>
+
+</launch>
