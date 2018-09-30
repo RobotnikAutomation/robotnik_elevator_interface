@@ -1,0 +1,17 @@
+<!-- 
+  Launches the gateway (redis data store) without publishing
+  it via zeroconf (avahi/bonjour/jmdns).
+-->
+<launch>
+  <arg name="gateway_name" default=" GoCart Concert"/>
+  <!-- Polling period for multimaster advertising/flipping -->
+  <arg name="hub_whitelist" default=""/>
+
+  <include file="$(find rocon_gateway)/launch/gateway.launch">
+  <arg name="gateway_watch_loop_period" value="5"/>
+  <arg name="gateway_hub_uri" value="http://gocart-server:6380"/>
+  <arg name="gateway_disable_uuids" value="true"/>
+  <arg name="gateway_disable_zeroconf" value="true" />
+  <arg name="gateway_custom_rules_file" value="$(find elevator_controller_interface)/config/rocon_config_ave_maria.yaml"/>
+  </include>
+</launch>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- start modbus_io node to communicate with a local test server -->
+  <node pkg="elevator_controller_interface" type="elevator_controller_interface_node" name="elevator_controller_interface">
+	<param name="ip_address" type="string" value="127.0.0.1" />
+  	<param name="port" value="8888"/>
+	<param name="digital_outputs" value="8"/>
+	<param name="digital_inputs" value="8"/>
+	<param name="digital_inputs_addr" value="0" />
+	<param name="digital_outputs_addr1" value="1"/>
+	<param name="digital_outputs_addr2" value="2"/>
+   </node>
+
+</launch>

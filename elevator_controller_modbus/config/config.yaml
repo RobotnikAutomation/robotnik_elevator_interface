@@ -1,0 +1,11 @@
+default_flips: 
+    - gateway: GoCart Concert.*       
+      rule:  
+        name: /elevator_controller_interface/input_output       
+        node: /elevator_controller_interface
+        type: publisher
+    - gateway: GoCart Concert.*
+      rule:
+        name: /elevator_controller_interface/write_digital_output
+        node: /elevator_controller_interface
+        type: service
