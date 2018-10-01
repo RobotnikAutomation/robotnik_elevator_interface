@@ -69,7 +69,7 @@ public:
   //void readyState();
   //void allState();
   int rosSetup();
-  //void rosReadParams();
+  void rosReadParams();
   //int setup();
   //int stop();
   //std::string getStateString();

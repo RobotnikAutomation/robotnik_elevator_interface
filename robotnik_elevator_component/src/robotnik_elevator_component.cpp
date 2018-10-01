@@ -33,6 +33,13 @@ int RobotnikElevatorComponent::rosSetup(){
 }
 
 
+void RobotnikElevatorComponent::rosReadParams(){
+	RComponent::rosReadParams();
+	
+	RCOMPONENT_WARN("111");
+	pnh_.param<std::string>("elevator_id", elevator_state.elevator_id, "Elevator-1");
+}
+
 
 bool RobotnikElevatorComponent::setElevatorControlServiceServerCb(robotnik_elevator_interface_msgs::SetElevatorControl::Request& request, robotnik_elevator_interface_msgs::SetElevatorControl::Response& response)
 {
