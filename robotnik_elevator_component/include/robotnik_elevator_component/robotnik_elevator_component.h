@@ -80,12 +80,12 @@ public:
   bool setDoorStateServiceServerCb(robotnik_elevator_interface_msgs::SetDoorState::Request& request, robotnik_elevator_interface_msgs::SetDoorState::Response& response);
   bool goToFloorServiceServerCb(robotnik_elevator_interface_msgs::GoToFloor::Request& request, robotnik_elevator_interface_msgs::GoToFloor::Response& response);
   
-  //! checks if it's a valid floor number
-  virtual int checkValidFloor(int floor); 
+
 protected:
  
   void initElevatorState();
   void switchToElevatorStatus(std::string new_status);
+  void switchToDoorStatus(std::string new_status);
   //! method called when someone takes the elevator control
   int takeControl(std::string control_token, std::string master_id);
   //! method called when someone releases the elevator control
@@ -99,6 +99,8 @@ protected:
   virtual int goToFloor(int floor);
   virtual int openDoor();
   virtual int closeDoor();
+  //! checks if it's a valid floor number
+  virtual int checkValidFloor(int floor); 
   
   
 };

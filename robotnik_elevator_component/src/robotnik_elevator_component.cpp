@@ -191,6 +191,17 @@ void RobotnikElevatorComponent::switchToElevatorStatus(std::string new_status){
   elevator_state.elevator_status = new_status;
 }
 
+/*! Method called to change states 
+ */
+void RobotnikElevatorComponent::switchToDoorStatus(std::string new_status){
+  if (new_status == elevator_state.door_status)
+    return;
+
+
+  RCOMPONENT_INFO("%s -> %s", elevator_state.door_status.c_str(), new_status.c_str());
+  elevator_state.door_status = new_status;
+}
+
 
 //! method called when someone takes the elevator control
 //! return 0 if OK,-1 otherwise
