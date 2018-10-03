@@ -7,13 +7,15 @@
   <maintainer email="rnavarro@robotnik.es">Román Navarro</maintainer>
 
   <license>BSD</license>
- 
+
   <buildtool_depend>catkin</buildtool_depend>
   <depend>roscpp</depend>
   <build_depend>rcomponent</build_depend>
   <build_depend>robotnik_msgs</build_depend>
+  <build_depend>robotnik_elevator_interface_msgs</build_depend>
   <build_export_depend>rcomponent</build_export_depend>
   <exec_depend>rcomponent</exec_depend>
   <exec_depend>robotnik_msgs</exec_depend>
+  <exec_depend>robotnik_elevator_interface_msgs</exec_depend>
 
 </package>

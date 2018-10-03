@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
     robotnik_msgs
     robotnik_elevator_component
     robotnik_elevator_interface_msgs
+    rcomponent
     )
 
 catkin_package(
@@ -23,6 +24,7 @@ catkin_package(
     robotnik_msgs
     robotnik_elevator_component
     robotnik_elevator_interface_msgs
+    rcomponent
 #  DEPENDS system_lib
 )
 
