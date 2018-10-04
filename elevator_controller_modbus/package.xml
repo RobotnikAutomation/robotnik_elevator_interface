@@ -21,6 +21,7 @@
   <build_depend>libmodbus-dev</build_depend>
   <build_depend>robotnik_elevator_interface_msgs</build_depend>
   <build_depend>robotnik_elevator_component</build_depend>
+  <build_depend>rcomponent</build_depend>
 
   <run_depend>roscpp</run_depend>
   <run_depend>self_test</run_depend>
@@ -29,5 +30,6 @@
   <run_depend>robotnik_msgs</run_depend>
   <run_depend>robotnik_elevator_interface_msgs</run_depend>
   <run_depend>robotnik_elevator_component</run_depend>
+  <run_depend>rcomponent</run_depend>
 
 </package>
