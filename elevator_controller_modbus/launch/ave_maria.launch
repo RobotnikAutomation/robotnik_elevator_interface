@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
   <!-- start modbus_io node -->
-  <include file="$(find elevator_controller_interface)/launch/rocon_elevator.launch"/>
-  <node pkg="elevator_controller_interface" type="elevator_controller_interface_node" name="elevator_controller_interface" output="screen">
+  <!--include file="$(find elevator_controller_modbus)/launch/rocon_elevator.launch"/-->
+  <node pkg="elevator_controller_modbus" type="elevator_controller_interface_node" name="elevator_controller_modbus" output="screen">
   	<param name="ip_address" type="string" value="192.168.1.185" />
 	<param name="port" value="502"/>
 	<param name="digital_outputs" value="8"/>
@@ -11,5 +11,11 @@
 	<param name="digital_outputs_addr1" value="384"/>
 	<param name="digital_outputs_addr2" value="385"/>
    </node>
+
+<!--rosparam name="take_control_output" value="0"/>"
+
+ <node pkg="elevator_controller_modbus" type="robotnik_elevator_component_modbus_node" name="robotnik_elevator_component_node" output="screen">
+       
+</node-->
 
 </launch>
