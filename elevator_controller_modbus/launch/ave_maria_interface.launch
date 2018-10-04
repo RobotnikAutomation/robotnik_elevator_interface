@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- start modbus_io node -->
+
+ <node pkg="elevator_controller_modbus" type="robotnik_elevator_component_modbus_node" name="robotnik_elevator_component_node" output="screen">
+       <param name="take_control_output" value="8"/>
+
+</node>
+
+</launch>
