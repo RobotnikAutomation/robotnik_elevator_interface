@@ -83,14 +83,11 @@ public:
 		
 		modbus_io_last_msg_time_ = ros::Time(0);
 		topic_timeout_ = 5.0;
-		
-		
+
 		return 0;
 	}
 	
 	void rosReadParams(){
-		//RobotnikElevatorComponent::rosReadParams();
-		RCOMPONENT_WARN("rosReadParams");
 		pnh_.param("take_control_output", take_control_output_, 4);
 		if(take_control_output_ <= 0){
 			RCOMPONENT_ERROR("take_control_output has to be > 0 (%d)", take_control_output_);
@@ -98,9 +95,10 @@ public:
 		}
 		
 		// TODO: read from params
-		served_floors_[0]={1,1};
-		served_floors_[1]={2,2};
-		served_floors_[3]={3,3};
+		//indice es el piso : salida_floor y entrada_floor
+		served_floors_[0]={1,1}; 
+		served_floors_[1]={2,2}; 
+		served_floors_[2]={3,3}; 
 		
 		door_control_={5,5};	 
 		pnh_.param("door_control_output", door_control_[0], 5);
@@ -194,6 +192,15 @@ public:
 		
 		elevator_state.target_floor = floor;
 		
+
+		srv.request.output = served_floors_[floor][0];
+		srv.request.value = false;
+			
+		if(not modbus_write_digital_output_service_client.call(srv)){
+			RCOMPONENT_ERROR("Error calling service");
+			return -1;
+		}
+
 		
 		return 0;
 	}
@@ -249,6 +256,8 @@ public:
 	
 	// Process the i/o state 
 	void processIO(robotnik_msgs::inputs_outputs io){
+
+		RCOMPONENT_INFO("processIO");
 		
 		//
 		//elevator_state.door_status = robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_OPEN;
@@ -258,6 +267,7 @@ public:
 		int size_outputs = io.digital_outputs.size();
 		
 		// check elevator_control
+		take_control_output_ = 8;
 		if( take_control_output_ > size_outputs){
 			RCOMPONENT_WARN_THROTTLE(5, "take control output (%d) is greater than the number of received outputs (%d)", take_control_output_, size_outputs);
 		}else{
@@ -277,7 +287,10 @@ public:
 				RCOMPONENT_WARN_THROTTLE(5, "input (%d) for floor (%d) is greater than the number of received inputs (%d)", floor_input, floor_number, size_inputs);
 			}else{
 				if(io.digital_inputs[floor_input - 1]){
+					RCOMPONENT_INFO("floor_input: %d", floor_input);
 					elevator_state.current_floor = floor_number;
+
+
 				}	
 			}
 		}
@@ -295,12 +308,12 @@ public:
 			RCOMPONENT_WARN_THROTTLE(5, "door control input (%d) is greater than the number of received inputs (%d)", door_input, size_inputs);
 			switchToDoorStatus(robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_UNKNOWN);
 		}else{
-			if(io.digital_inputs[door_input])
-				switchToDoorStatus(robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_OPEN);
-			else if(io.digital_outputs[door_output])
-				switchToDoorStatus(robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_OPENING);
-			else
+			if(io.digital_inputs[door_input-1])
 				switchToDoorStatus(robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_CLOSE);
+			else if(io.digital_outputs[door_output-1])
+				switchToDoorStatus(robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_OPEN);
+			else
+				switchToDoorStatus(robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_OPEN);
 		}
 		
 		
