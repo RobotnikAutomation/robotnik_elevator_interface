@@ -57,6 +57,7 @@ public:
   {
 	  max_control_time_in_idle = DEFAULT_MAX_CONTROL_TIME_IN_IDLE;
 	  desired_freq_ = DEFAULT_FREQ;
+	  rosReadParams();
   }
 
   virtual ~RobotnikElevatorComponent()

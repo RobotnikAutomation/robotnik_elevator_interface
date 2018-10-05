@@ -13,6 +13,7 @@ public:
   RobotnikFakeElevatorNode(ros::NodeHandle h)
     : RobotnikElevatorComponent(h)
   {
+	  rosReadParams();
   }
 
   virtual ~RobotnikFakeElevatorNode()
@@ -80,6 +81,9 @@ public:
 	int closeDoor(){
 		elevator_state.door_status = robotnik_elevator_interface_msgs::ElevatorState::DOOR_STATUS_CLOSE;		
 		return 0;
+	}
+	
+	void rosReadParams(){
 	}
 
   

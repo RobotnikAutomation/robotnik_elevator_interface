@@ -19,6 +19,7 @@ public:
   RobotnikModbusElevatorNode(ros::NodeHandle h)
     : RobotnikElevatorComponent(h)
   {
+	  rosReadParams();
   }
 
   virtual ~RobotnikModbusElevatorNode()
@@ -83,12 +84,13 @@ public:
 		modbus_io_last_msg_time_ = ros::Time(0);
 		topic_timeout_ = 5.0;
 		
+		
 		return 0;
 	}
 	
 	void rosReadParams(){
-		RobotnikElevatorComponent::rosReadParams();
-		
+		//RobotnikElevatorComponent::rosReadParams();
+		RCOMPONENT_WARN("rosReadParams");
 		pnh_.param("take_control_output", take_control_output_, 4);
 		if(take_control_output_ <= 0){
 			RCOMPONENT_ERROR("take_control_output has to be > 0 (%d)", take_control_output_);
