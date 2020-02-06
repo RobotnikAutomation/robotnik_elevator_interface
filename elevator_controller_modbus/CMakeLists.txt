@@ -50,6 +50,5 @@ add_dependencies(robotnik_elevator_component_modbus_node robotnik_msgs_generate_
 
 target_link_libraries(
 	robotnik_elevator_component_modbus_node
-	robotnik_elevator_component
 	${catkin_LIBRARIES}
 )
