@@ -36,7 +36,7 @@
 #include <assert.h>
 #include <boost/format.hpp>
 #include <iostream>
-#include "modbus.h"
+#include "modbus/modbus.h"
 #include <stdio.h>
 #include <typeinfo>
 
