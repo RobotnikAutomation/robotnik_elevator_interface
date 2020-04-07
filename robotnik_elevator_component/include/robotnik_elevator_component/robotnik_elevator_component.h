@@ -10,8 +10,6 @@
 #define DEFAULT_MAX_CONTROL_TIME_IN_IDLE	60.0
 #define DEFAULT_FREQ	10.0
 
-namespace robotnik_elevator_component
-{
 
 enum{
 	ELEVATOR_CONTROL_OK = 0,
@@ -105,6 +103,5 @@ protected:
   
   
 };
-}
 
 #endif  //_ROBOTNIK_ELEVATOR_COMPONENT_H_

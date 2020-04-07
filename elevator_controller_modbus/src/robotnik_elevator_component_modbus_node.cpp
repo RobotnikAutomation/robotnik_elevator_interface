@@ -8,7 +8,6 @@
 #include <robotnik_msgs/inputs_outputs.h>
 #include <robotnik_msgs/set_digital_output.h>
 
-using namespace robotnik_elevator_component;
 
 
 class RobotnikModbusElevatorNode : public RobotnikElevatorComponent

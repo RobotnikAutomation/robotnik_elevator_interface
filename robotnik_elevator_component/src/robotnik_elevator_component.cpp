@@ -2,7 +2,6 @@
 
 #include <robotnik_elevator_component/robotnik_elevator_component.h>
 
-using namespace robotnik_elevator_component;
 
 /*!	\fn int RobotnikElevatorComponent::rosSetup()
  * 	\brief Setups all ROS' stuff
